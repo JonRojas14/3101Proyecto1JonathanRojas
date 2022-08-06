@@ -1,0 +1,125 @@
+USE [Proyecto1]
+GO
+/****** Object:  Table [dbo].[Clinic]  
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Clinic](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nvarchar](50) NOT NULL,
+	[Cedula] [nvarchar](10) NOT NULL,
+	[Telefono] [nvarchar](max) NOT NULL,
+	[Correo] [nvarchar](max) NOT NULL,
+	[Pais] [nvarchar](max) NOT NULL,
+	[Estado] [nvarchar](max) NOT NULL,
+	[Distrito] [nvarchar](max) NULL,
+	[SitioWeb] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Clinic] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Efec]   
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Efec](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NombreMedico] [nvarchar](max) NOT NULL,
+	[CorreoMedico] [nvarchar](max) NOT NULL,
+	[NombrePaciente] [nvarchar](max) NOT NULL,
+	[CorreoPaciente] [nvarchar](max) NOT NULL,
+	[ResultadosEfectosAdversos] [nvarchar](max) NOT NULL,
+	[ConservaSintomas] [nvarchar](max) NOT NULL,
+	[Alergias] [nvarchar](max) NOT NULL,
+	[DescripAlergias] [nvarchar](max) NOT NULL,
+	[NuevasEnfermedades] [nvarchar](max) NOT NULL,
+	[OtrasCondiciones] [nvarchar](max) NOT NULL,
+	[Cancer] [nvarchar](max) NOT NULL,
+	[Sintomas] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Efec] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Inyec]   
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Inyec](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[NombreInyec] [nvarchar](max) NOT NULL,
+	[Marca] [nvarchar](max) NOT NULL,
+	[FechaAplicacion1] [nvarchar](max) NOT NULL,
+	[FechaAplicacion2] [nvarchar](max) NOT NULL,
+	[Lote] [nvarchar](max) NOT NULL,
+	[FechaVencimiento] [nvarchar](max) NOT NULL,
+	[LugarAplicacion] [nvarchar](max) NOT NULL,
+	[Observacion] [nvarchar](max) NOT NULL,
+	[TuvoCovid] [nvarchar](max) NOT NULL,
+	[Sospecha] [nvarchar](max) NOT NULL,
+	[CovidPostInyeccion] [nvarchar](max) NOT NULL,
+	[RazonDeInyeccion] [nvarchar](max) NOT NULL,
+	[EstabaEmbarazada] [nvarchar](max) NOT NULL,
+	[Reacciones] [nvarchar](max) NOT NULL,
+	[DescripcionesReacciones] [nvarchar](max) NOT NULL,
+	[Medicamentos] [nvarchar](max) NOT NULL,
+	[MeidcamentosPostInyeccion] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Inyec] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Med]   
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Med](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Identificacion] [nvarchar](8) NOT NULL,
+	[Codigo] [nvarchar](4) NOT NULL,
+	[NombreComp] [nvarchar](50) NOT NULL,
+	[Correo] [nvarchar](max) NOT NULL,
+	[Pais] [nvarchar](max) NOT NULL,
+	[Estado] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Med] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Pac]    
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Pac](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CedulaPaciente] [nvarchar](8) NOT NULL,
+	[Nombre] [nvarchar](max) NOT NULL,
+	[Apellido1] [nvarchar](max) NOT NULL,
+	[Apellido2] [nvarchar](max) NOT NULL,
+	[Nacimiento] [nvarchar](max) NOT NULL,
+	[Sexo] [nvarchar](max) NOT NULL,
+	[NumContacto] [nvarchar](max) NOT NULL,
+	[Pais] [nvarchar](max) NOT NULL,
+	[Provincia] [nvarchar](max) NOT NULL,
+	[Distrito] [nvarchar](max) NULL,
+	[EstadoCivil] [nvarchar](max) NOT NULL,
+	[Telefono] [nvarchar](max) NOT NULL,
+	[Correo] [nvarchar](max) NOT NULL,
+	[FechaRegistro] [nvarchar](max) NOT NULL,
+	[Ocupacion] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Pac] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
