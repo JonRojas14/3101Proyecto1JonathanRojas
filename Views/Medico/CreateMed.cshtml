@@ -1,0 +1,75 @@
+﻿@model TestProyecto1.Models.Medicos 
+
+@{
+    ViewData["Title"] = "CreateMed";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container"> <!--Contenedor del formulario para crear un nuevo registro de medico-->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Registro de efectos adversos Paso 1 - Datos del profesional medico</h3>
+            @ViewBag.msg
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="CreateMed" id="form1">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                   <label asp-for="Identificacion" class="control-label" ></label>
+                   <input asp-for="Identificacion" class="form-control"  />
+                   <span asp-validation-for="Identificacion" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Codigo" class="control-label" ></label>
+                   <input asp-for="Codigo" class="form-control" />
+                   <span asp-validation-for="Codigo" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="NombreComp" class="control-label" ></label>
+                   <input asp-for="NombreComp" class="form-control"/>
+                   <span asp-validation-for="NombreComp" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                   <label asp-for="Correo" class="control-label" ></label>
+                   <input asp-for="Correo" class="form-control" />
+                   <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Pais" class="control-label" ></label>
+                   <input asp-for="Pais" class="form-control" />
+                   <span asp-validation-for="Pais" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Estado" class="control-label" ></label>
+                   <input asp-for="Estado" class="form-control" />
+                   <span asp-validation-for="Estado" class="text-danger"></span>
+                </div>                
+
+                
+                <div class="form-group">
+                  <input type="submit" id="Guardar" value="Guardar" class="btn btn-primary"/>
+                </div>
+                
+
+            </form>
+        </div> 
+    </div>
+
+</div>
+
+@section Scripts{ <!--toma las validaciones del lado cliente-->
+
+    @{ <partial name="_ValidationScriptsPartial" />}
+
+}
+

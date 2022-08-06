@@ -1,0 +1,462 @@
+﻿@model TestProyecto1.Models.Efectos 
+
+@{
+    ViewData["Title"] = "CreateReporteEfectos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container"> <!--Contenedor del formulario para crear un nuevo registro de efectos adversos-->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Registro de efectos adversos Paso 5 - Registrar efectos adversos y registro de datos</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="CreateReporteEfectos" id="form1">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                   <label asp-for="NombreMedico" class="control-label" ></label>
+                   <input asp-for="NombreMedico" class="form-control" />
+                   <span asp-validation-for="NombreMedico" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="CorreoMedico" class="control-label" ></label>
+                   <input asp-for="CorreoMedico" class="form-control" />
+                   <span asp-validation-for="CorreoMedico" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="NombrePaciente" class="control-label" ></label>
+                   <input asp-for="NombrePaciente" class="form-control" />
+                   <span asp-validation-for="NombrePaciente" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="CorreoPaciente" class="control-label" ></label>
+                   <input asp-for="CorreoPaciente" class="form-control" />
+                   <span asp-validation-for="CorreoPaciente" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                   <label asp-for="ResultadosEfectosAdversos" class="control-label" ></label>
+
+                    <div>
+                        <div>
+                             Visita al médico o a la consulta de otro profesional de la salud<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Visita al médico o a la consulta de otro profesional de la salud"/>
+                        </div>
+
+                        <div>
+                             Visita a la sala de emergencias o al centro de atención urgente<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Visita a la sala de emergencias o al centro de atención urgente" />
+                        </div>
+
+                        <div>
+                            Hospitalización<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Hospitalización" />
+                        </div>
+
+                        <div>
+                            Hospitalización prolongada (inyección de COVID recibida en el hospital)<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Hospitalización prolongada (inyección de COVID recibida en el hospital)" />
+                        </div>
+                      
+                        <div>
+                            Enfermedad que pone en peligro la vida<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Enfermedad que pone en peligro la vida" />
+                        </div>
+
+                        <div>
+                            Incapacidad o daño permanente<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Incapacidad o daño permanente" />
+                        </div>
+
+                        <div>
+                            Paciente fallecido<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Paciente fallecido" />
+                        </div>
+
+                        <div>
+                            Anomalía congénita o defecto de nacimiento<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Anomalía congénita o defecto de nacimiento" />
+                        </div>
+
+                        <div>
+                            Aborto espontáneo o nacimiento sin vida<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Aborto espontáneo o nacimiento sin vida" />
+                        </div>
+
+                         <div>
+                             Ninguna de las anteriores<input asp-for="ResultadosEfectosAdversos" type="checkbox" name="ListaResultados" value="Ninguno" />
+                        </div>
+                    </div>
+                
+                   <span asp-validation-for="ResultadosEfectosAdversos" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="ConservaSintomas" class="control-label" ></label>
+                   <input asp-for="ConservaSintomas" class="form-control" list="Tuvo"/>
+                   <span asp-validation-for="ConservaSintomas" class="text-danger"></span>
+                    <datalist id="Tuvo">
+                       <option value="Si"></option>
+                       <option value="No"></option>
+                   </datalist>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="Alergias" class="control-label" ></label>
+
+                   <div>
+                       <div>
+                           Medicamentos<input asp-for="Alergias" type="checkbox" name="ListaResultados" value="Medicamentos" />
+                       </div>
+                      
+                       <div>
+                           Polietilenglicol<input asp-for="Alergias" type="checkbox" name="ListaAlergias" value="Polietilenglicol" />
+                       </div>
+
+                       <div>
+                            Alimentos<input asp-for="Alergias" type="checkbox" name="ListaAlergias" value="Alimentos" />
+                       </div>
+                       
+
+                       <div>
+                            Medio ambiente<input asp-for="Alergias" type="checkbox" name="ListaAlergias" value="Medio ambiente" />
+                       </div>
+                       
+                       <div>
+                            Otros<input asp-for="Alergias" type="checkbox" name="ListaAlergias" value="Otros" />
+                       </div>
+                   </div>
+
+                   <span asp-validation-for="Alergias" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                   <label asp-for="DescripAlergias" class="control-label" ></label>
+                   <input asp-for="DescripAlergias" class="form-control" />
+                   <span asp-validation-for="DescripAlergias" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="NuevasEnfermedades" class="control-label" ></label>
+
+                   <div>
+                       <div>
+                       Enfermedad de Addison<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedad de Addison" />
+                       </div>
+
+                       <div>
+                           Alergias<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Alergias" />
+                       </div>
+
+                       <div>
+                           Arritmias<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Arritmias" />
+                       </div>
+
+                       <div>
+                           Fibrilación auricular<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Fibrilación auricular" />
+                       </div>
+
+                       <div>
+                           Vasculitis autoinmune<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Vasculitis autoinmune" />
+                       </div>
+
+                       <div>
+                           Parálisis de Bell (parálisis facial)<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Parálisis de Bell (parálisis facial)" />
+                       </div>
+
+                       <div>
+                           Bronquitis<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Bronquitis" />
+                       </div>
+
+                       <div>
+                           Cáncer<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Cáncer" />
+                       </div>
+
+                       <div>
+                           Enfermedad celíaca<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedad celíaca" />
+                       </div>
+
+                       <div>
+                           Enfermedad renal crónica<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedad renal crónica" />
+                       </div>
+
+                       <div>
+                           Insuficiencia cardíaca congestiva<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Insuficiencia cardíaca congestiva" />
+                       </div>
+
+                       <div>
+                           Enfermedad de Crohn<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedad de Crohn" />
+                       </div>
+
+                       <div>
+                           TVP (coágulos de sangre)<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="TVP (coágulos de sangre)" />
+                       </div>
+
+                       <div>
+                           Diabetes<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Diabetes" />
+                       </div>
+
+                       <div>
+                           Encefalitis<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Encefalitis" />
+                       </div>
+
+                       <div>
+                           Epilepsia<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Epilepsia" />
+                       </div>
+
+                       <div>
+                           Enfermedades del corazón<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedades del corazón" />
+                       </div>
+
+                       <div>
+                           Herpes tipo 1<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Herpes tipo 1" />
+                       </div>
+
+                       <div>
+                           Herpes tipo 2<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Herpes tipo 2" />
+                       </div>
+
+                       <div>
+                           VIH<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="VIH" />
+                       </div>
+
+                       <div>
+                           Hipertensión<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Hipertensión" />
+                       </div>
+
+                       <div>
+                           Enfermedad inflamatoria intestinal<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedad inflamatoria intestinal" />
+                       </div>
+
+                       <div>
+                           Enfermedad renal aguda<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedad renal aguda" />
+                       </div>
+
+                       <div>
+                           Enfermedad hepática<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Enfermedad hepática" />
+                       </div>
+
+                       <div>
+                           Lupus<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Lupus" />
+                       </div>
+
+                       <div>
+                           Aborto espontáneo<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Aborto espontáneo" />
+                       </div>
+
+                       <div>
+                           Esclerosis múltiple<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Esclerosis múltiple" />
+                       </div>
+
+                       <div>
+                           Miastenia gravis<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Miastenia gravis" />
+                       </div>
+
+                       <div>
+                           Infarto de miocardio<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Infarto de miocardio" />
+                       </div>
+
+                       <div>
+                           Miocarditis<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Miocarditis" />
+                       </div>
+
+                       <div>
+                           Osteoartritis<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Osteoartritis" />
+                       </div>
+
+                       <div>
+                           Pericarditis<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Pericarditis" />
+                       </div>
+
+                       <div>
+                           Anemia perniciosa<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Anemia perniciosa" />
+                       </div>
+
+                       <div>
+                           Neumonía<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Neumonía" />
+                       </div>
+
+                       <div>
+                           Parto prematuro<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Parto prematuro" />
+                       </div>
+
+                       <div>
+                           Psoriasis<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Psoriasis" />
+                       </div>
+
+                       <div>
+                           Artritis psoriásica<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Artritis psoriásica" />
+                       </div>
+
+                       <div>
+                           Embolia pulmonar<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Embolia pulmonar" />
+                       </div>
+
+                       <div>
+                           Artritis reumatoide<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Artritis reumatoide" />
+                       </div>
+
+                       <div>
+                           Herpes zóster<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Herpes zóster" />
+                       </div>
+
+                       <div>
+                           Síndrome de Sjogren<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Síndrome de Sjogren" />
+                       </div>
+
+                       <div>
+                           Nacimiento sin vida<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Nacimiento sin vida" />
+                       </div>
+
+                       <div>
+                           Accidente cerebrovascular<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Accidente cerebrovascular" />
+                       </div>
+
+                       <div>
+                           Ataques isquémicos transitorios<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Ataques isquémicos transitorios" />
+                       </div>
+
+                       <div>
+                           Trastorno de la tiroides<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Trastorno de la tiroides" />
+                       </div>
+
+                       <div>
+                           Colitis ulcerosa<input asp-for="NuevasEnfermedades" type="checkbox" name="ListaNuevasEfermedades" value="Colitis ulcerosa" />
+                       </div>
+                   </div>
+
+                   <span asp-validation-for="NuevasEnfermedades" class="text-danger"></span>
+                </div>
+
+                 <div class="form-group">
+                   <label asp-for="OtrasCondiciones" class="control-label" ></label>
+                   <input asp-for="OtrasCondiciones" class="form-control" />
+                   <span asp-validation-for="OtrasCondiciones" class="text-danger"></span>
+                </div>  
+                
+                <div class="form-group">
+                   <label asp-for="Cancer" class="control-label" ></label>
+                   <input asp-for="Cancer" class="form-control" list="DesarrollaCancer" id="desarrollacancer"/>
+                   <span asp-validation-for="Cancer" class="text-danger"></span>
+                   <datalist id="DesarrollaCancer">
+                       <option value="Si"></option>
+                       <option value="No"></option>
+                   </datalist>
+                </div>   
+
+                <div class="form-group">
+                   <label asp-for="Sintomas" class="control-label" ></label>
+                   <div>
+
+                       <div>
+                           Síntomas de COVID o Enfermedad de COVID<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Síntomas de COVID o Enfermedad de COVID" />
+                       </div>
+
+                       <div>
+                           Disminución del bienestar<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Disminución del bienestar" />
+                       </div>
+
+                       <div>
+                           Disminución del estado de salud<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Disminución del estado de salud" />
+                       </div>
+
+                       <div>
+                           Fatiga extrema<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Fatiga extrema" />
+                       </div>
+
+                       <div>
+                           Incapacidad para participar en actividades rutinarias<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Incapacidad para participar en actividades rutinarias" />
+                       </div>
+
+                       <div>
+                           Pérdida de energía<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Pérdida de energía" />
+                       </div>
+
+                       <div>
+                           Dolor inexplicable<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Dolor inexplicable" />
+                       </div>
+
+                       <div>
+                           Debilidad<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Debilidad" />
+                       </div>
+
+                       <div>
+                           Fiebre inexplicable<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Fiebre inexplicable" />
+                       </div>
+
+                       <div>
+                           Sensaciones corporales inexplicables<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Sensaciones corporales inexplicables" />
+                       </div>
+
+                       <div>
+                           Sudores nocturnos<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Sudores nocturnos" />
+                       </div>
+
+                       <div>
+                           Sofocos<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Sofocos" />
+                       </div>
+
+                       <div>
+                           Intolerancia al frío<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Intolerancia al frío" />
+                       </div>
+
+                       <div>
+                           Intolerancia al calor<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Intolerancia al calor" />
+                       </div>
+
+                       <div>
+                           Sensibilidad a los cambios de temperatura<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Sensibilidad a los cambios de temperatura" />
+                       </div>
+
+                       <div>
+                           Cambio en la capacidad de caminar<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Cambio en la capacidad de caminar" />
+                       </div>
+
+                       <div>
+                           Cambio en el pensamiento<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Cambio en el pensamiento" />
+                       </div>
+
+                       <div>
+                           Ya no me siento como antes<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Ya no me siento como antes" />
+                       </div>
+
+                       <div>
+                           Aumento de peso inexplicable<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Aumento de peso inexplicable" />
+                       </div>
+
+                       <div>
+                           Pérdida de peso inexplicable<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Pérdida de peso inexplicable" />
+                       </div>
+
+                       <div>
+                           Sueño fragmentado<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Sueño fragmentado" />
+                       </div>
+
+                       <div>
+                           No puedo dormir<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="No puedo dormir" />
+                       </div>
+
+                       <div>
+                           Insomnio<input asp-for="Sintomas" type="checkbox" name="ListaSintomas" value="Insomnio" />
+                       </div
+                       
+                   </div>
+                   <span asp-validation-for="Sintomas" class="text-danger"></span>
+                </div>   
+                
+                <div class="form-group">
+                  <input type="submit" id="Guardar" value="Guardar" class="btn btn-primary"/>
+                </div>
+
+            </form>
+        </div> 
+    </div>
+
+</div>
+
+@section Scripts{ <!--toma las validaciones del lado cliente-->
+
+    @{ <partial name="_ValidationScriptsPartial" />}
+
+}
+
